@@ -1,0 +1,45 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="login" class="com.pritient.forward.LoginAction">
+            <result name="success">/jsp/dashboard.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+        <action name="getproduct" class="com.pritient.forward.ProductAction" method="getProducts">
+            <result name="success">/jsp/product.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+        <action name="purchase" class="com.pritient.forward.PurchaseAction" >
+            <result name="success">/jsp/purchase.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+         <action name="getaddressbook" class="com.pritient.forward.AddressBookAction" >
+            <result name="success">/jsp/addressbook.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        <action name="saveCompany" class="com.pritient.forward.AddressBookAction" method="addCompanyAddress">
+            <result name="success" type="chain">getaddressbook</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+         <action name="getCompanyDetails" class="com.pritient.forward.AddressBookAction" method="getCompanyDetails">
+            <result type="stream">
+        <param name="contentType">text/plain</param>
+    </result>
+        </action>
+        
+        <action name="updateCompany" class="com.pritient.forward.AddressBookAction" method="updateCompanyDetails">
+            <result name="success" type="chain">getaddressbook</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+        
+        
+    </package>
+</struts>
