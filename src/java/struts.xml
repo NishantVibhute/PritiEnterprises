@@ -54,5 +54,10 @@
             <result name="failed">/index.jsp</result>
         </action>
         
+        <action name="saveInvoiceCall" class="com.pritient.forward.InvoiceAction" method="saveInvoiceAction" >
+            <result name="success">/jsp/invoice.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
     </package>
 </struts>

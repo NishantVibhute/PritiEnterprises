@@ -22,17 +22,17 @@ $(document).ready(function () {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><select id="productSelect' + counter + '" name="purchaseProducts[' + counter + '].productId" class="form-control" onchange="getCompanyInfo()"></select></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].qty" id="qty' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].price" id="price' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].amount" id="amount' + counter + '" /></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].cgstPerc" id="cgstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')" value="9"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].cgstAmount" id="cgstAmt' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].sgstPerc" id="sgstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')"  value="9"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].sgstAmount"  id="sgstAmt' + counter + '" /></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].igstPerc" id="igstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')" value="18"/></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].igstAmount" id="igstAmt' + counter + '" /></td>';
-        cols += '<td><input type="text" class="form-control" name="purchaseProducts[' + counter + '].totalAmountAfterTax" id="totalAmountAfterTax' + counter + '"/></td>';
+        cols += '<td><select id="productSelect' + counter + '" name="invoiceDetails[' + counter + '].productId" class="form-control" onchange="getCompanyInfo()"></select></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].qty" id="qty' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].price" id="price' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].amount" id="amount' + counter + '" /></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].cgstPerc" id="cgstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')" value="9"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].cgstAmount" id="cgstAmt' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].sgstPerc" id="sgstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')"  value="9"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].sgstAmount"  id="sgstAmt' + counter + '" /></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].igstPerc" id="igstPerc' + counter + '" onblur="calculateRowGSTTotal(' + counter + ')" value="18"/></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].igstAmount" id="igstAmt' + counter + '" /></td>';
+        cols += '<td><input type="text" class="form-control" name="invoiceDetails[' + counter + '].totalAmountAfterTax" id="totalAmountAfterTax' + counter + '"/></td>';
         cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="X"></td>';
         newRow.append(cols);
         
@@ -88,15 +88,15 @@ $("#calculate").on("click", function () {
      $("#totalAmountFinal").val(TotalTatalAmount);
      
          var cgstPercFinal=$("#cgstPercFinal").val();
-     var cgstAmtFinal=parseFloat(val*(cgstPercFinal/100)).toFixed(2);
+     var cgstAmtFinal=parseFloat(TotalTatalAmount*(cgstPercFinal/100)).toFixed(2);
          $("#cgstAmountFinal").val(parseFloat(cgstAmtFinal).toFixed(2));
          
           var sgstPercFinal=$("#sgstPercFinal").val();
-     var sgstAmtFinal=parseFloat(val*(sgstPercFinal/100)).toFixed(2);
+     var sgstAmtFinal=parseFloat(TotalTatalAmount*(sgstPercFinal/100)).toFixed(2);
          $("#sgstAmountFinal").val(parseFloat(sgstAmtFinal).toFixed(2));
          
           var igstPercFinal=$("#igstPercFinal").val();
-     var igstAmtFinal=parseFloat(val*(igstPercFinal/100)).toFixed(2);
+     var igstAmtFinal=parseFloat(TotalTatalAmount*(igstPercFinal/100)).toFixed(2);
          $("#igstAmountFinal").val(parseFloat(igstAmtFinal).toFixed(2));
     
     
@@ -110,7 +110,7 @@ $("#calculate").on("click", function () {
        
        
        var amountInwords = convertNumberToWords(roundval);
-       $("#amountInwords").html(amountInwords+"rupees only");
+       $("#amountInwords").val(amountInwords+"rupees only");
        
     });
 

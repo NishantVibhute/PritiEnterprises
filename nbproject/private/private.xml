@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/struts.xml</file>
             <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/web/js/purchase.js</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/bean/dao/InvoiceDao.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/forward/InvoiceAction.java</file>
             <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/web/js/invoice.js</file>
             <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/web/jsp/purchase.jsp</file>
             <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/web/jsp/invoice.jsp</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/forward/PurchaseAction.java</file>
         </group>
     </open-files>
 </project-private>

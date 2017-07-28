@@ -93,7 +93,7 @@
                 </s:if>
                 <div class="row breadcrumb">
                     <div class="col-lg-12">
-                        <form role="form" action="savePurchase" >
+                        <form  action="saveInvoiceCall" >
                             <table class=" table" width="60%"  >
                                 <tr>
                                     <td colspan="2">
@@ -106,7 +106,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Invoice No.</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" name="id" />
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Transport Mode</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" name="transportMode" />
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +127,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Invoice Date.</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" id="datepicker"  readonly name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="datepicker"  readonly name="date" />
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Vehicle No.</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" name="vehicleNo" />
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-4 control-label">Reverse Charge (Y/N)</label>
                                                 <div class="col-xs-3">
-                                                    <select class="form-control">
+                                                    <select name="reverseCharge" class="form-control">
                                                         <option selected value="no">NO</option>
                                                         <option value="yes">YES</option>
 
@@ -162,7 +162,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Date Of Supply</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" id="datepicker1"  readonly name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="datepicker1"  readonly name="dateOfSupply" />
                                                 </div>
                                             </div>
                                         </div>
@@ -176,11 +176,11 @@
 
                                                 <label class="col-xs-3 control-label">State </label>
                                                 <div class="col-xs-5">
-                                                    <input type="text" value="MAHARASHTRA" class="form-control" name="invoiceNo" />
+                                                    <input type="text" value="MAHARASHTRA" class="form-control" name="state" />
                                                 </div>
                                                 <label class="col-xs-1 control-label">Code </label>
                                                 <div class="col-xs-3">
-                                                    <input type="text" value="27" class="form-control" name="invoiceNo" />
+                                                    <input type="text" value="27" class="form-control" name="code" />
                                                 </div>
 
                                             </div>
@@ -190,7 +190,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Place Of Supply</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" name="placeOfSupply" />
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +201,6 @@
 
                                     </td>
                                 </tr>
-
                                 <tr style="text-align: center">
                                     <td width="50%" >
                                         <label class="col-xs-12 control-label" >Bill to Party</label>
@@ -216,7 +215,12 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Name</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <select id="compSelect" name="billTO" class="form-control"  onchange="getCompanyInfo()">
+                                                        <option value="0">Select</option>
+                                                        <s:iterator value="companyList">
+                                                            <option value="<s:property value = 'companyId'/>"><s:property value = 'companyName'/></option>
+                                                        </s:iterator>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,13 +229,17 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Name</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <select id="compSelect" name="shipTo" class="form-control"  onchange="getCompanyInfo()">
+                                                        <option value="0">Select</option>
+                                                        <s:iterator value="companyList">
+                                                            <option value="<s:property value = 'companyId'/>"><s:property value = 'companyName'/></option>
+                                                        </s:iterator>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>
                                         <div class="row">
@@ -246,7 +254,7 @@
                                     </td>
                                     <td> <div class="row">
                                             <div class="form-group">
-                                                <label class="col-xs-3 control-label">Adress</label>
+                                                <label class="col-xs-3 control-label">Address</label>
                                                 <div class="col-xs-9">
                                                     <textarea style="height:80px" type="text" resize="none" class="form-control"> </textarea>
                                                 </div>
@@ -346,7 +354,7 @@
                                                 <tr>
 
                                                     <td class="col-sm-2">
-                                                        <select id="productSelect" name="purchaseProducts[0].productId" class="form-control" onchange="getCompanyInfo()">
+                                                        <select id="productSelect" name="invoiceDetails[0].productId" class="form-control" onchange="getCompanyInfo()">
                                                             <option value="0">Select</option>
                                                             <s:iterator value="subProductList">
                                                                 <option value="<s:property value = 'subProductId'/>"><s:property value = 'subProductName'/></option>
@@ -354,34 +362,34 @@
                                                         </select>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].qty" id="qty0"  class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].qty" id="qty0"  class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].price" id="price0"  onblur="calculateRowGSTTotal('0')"  class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].price" id="price0"  onblur="calculateRowGSTTotal('0')"  class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].amount" id="amount0"  class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].amount" id="amount0"  class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].cgstPerc" id="cgstPerc0" onblur="calculateRowGSTTotal('0')" value="9" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].cgstPerc" id="cgstPerc0" onblur="calculateRowGSTTotal('0')" value="9" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].cgstAmount" id="cgstAmt0" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].cgstAmount" id="cgstAmt0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].sgstPerc" id="sgstPerc0" onblur="calculateRowGSTTotal('0')"  value="9" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].sgstPerc" id="sgstPerc0" onblur="calculateRowGSTTotal('0')"  value="9" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].sgstAmount"  id="sgstAmt0" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].sgstAmount"  id="sgstAmt0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].igstPerc" id="igstPerc0" onblur="calculateRowGSTTotal('0')" value="18" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].igstPerc" id="igstPerc0" onblur="calculateRowGSTTotal('0')" value="18" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].igstAmount"  id="igstAmt0" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].igstAmount"  id="igstAmt0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].totalAmountAfterTax" id="totalAmountAfterTax0" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].totalAmountAfterTax" id="totalAmountAfterTax0" class="form-control"/>
                                                     </td>
 
 
@@ -402,28 +410,28 @@
                                                         <label class="col-xs-12 control-label">TOTAL </label>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].amount" id="TotalTatalAmount"  value="0" class="form-control"/>
+                                                        <input type="text" name="" id="TotalTatalAmount"  value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
 
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].cgstAmount" id="TotalTatalCGST" value="0" class="form-control"/>
+                                                        <input type="text" name="" id="TotalTatalCGST" value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
 
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].sgstAmount"  id="TotalTatalSGST" value="0" class="form-control"/>
+                                                        <input type="text" name=""  id="TotalTatalSGST" value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
 
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].igstAmount"  id="TotalTatalIGST" value="0" class="form-control"/>
+                                                        <input type="text" name=""  id="TotalTatalIGST" value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="purchaseProducts[0].totalAmountAfterTax" id="TotalTotalAmountAfterTax" value="0" class="form-control"/>
+                                                        <input type="text" name="" id="TotalTotalAmountAfterTax" value="0" class="form-control"/>
                                                     </td>
 
 
@@ -451,15 +459,18 @@
                                             <input type="hidden" id="companyId"/>
                                             <label class="control-label col-xs-6 " for="inputSuccess">Total Amount Before Tax</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control"  name="totalAmount" id="totalAmountFinal">
+                                                <input type="text" class="form-control"  name="totalAmountBeforeTax" id="totalAmountFinal">
                                             </div>
                                         </div>
 
 
                                     </td>
                                 </tr>
+
                                 <tr>
-                                    <td rowspan="3"><label class="control-label col-xs-12 text-center" id="amountInwords"></label></td>
+                                    <td rowspan="3">
+                                        <input type="text" class="form-control"  name="totalAmountInWords" id="amountInwords"/>
+                                    </td>
                                     <td >
 
 
@@ -488,11 +499,11 @@
 
                                             <label class="control-label col-xs-2 " for="inputSuccess">SGST %</label>
                                             <div class="col-xs-2 ">
-                                                <input type="text" class="form-control"   name="cgstPercFinal" id="sgstPercFinal" VALUE="9">
+                                                <input type="text" class="form-control"   name="sgstPerc" id="sgstPercFinal" VALUE="9">
                                             </div>
                                             <label class="control-label col-xs-2" for="inputWarning">Amount</label>
                                             <div class="col-xs-6">
-                                                <input type="text" class="form-control" name="cgstAmount" id="sgstAmountFinal">
+                                                <input type="text" class="form-control" name="sgstAmount" id="sgstAmountFinal">
                                             </div>
                                         </div>
 
@@ -509,11 +520,11 @@
 
                                             <label class="control-label col-xs-2 " for="inputSuccess">IGST %</label>
                                             <div class="col-xs-2 ">
-                                                <input type="text" class="form-control"   name="igstPercFinal" id="igstPercFinal" VALUE="9">
+                                                <input type="text" class="form-control"   name="igstPerc" id="igstPercFinal" VALUE="9">
                                             </div>
                                             <label class="control-label col-xs-2" for="inputWarning">Amount</label>
                                             <div class="col-xs-6">
-                                                <input type="text" class="form-control" name="cgstAmount" id="igstAmountFinal">
+                                                <input type="text" class="form-control" name="igstAmount" id="igstAmountFinal">
                                             </div>
                                         </div>
 
@@ -529,7 +540,7 @@
                                             <input type="hidden" id="companyId"/>
                                             <label class="control-label col-xs-6 " for="inputSuccess">Total Amount After Tax</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control"  name="totalAmount" id="totalAmountAfterTaxFinal">
+                                                <input type="text" class="form-control"  name="totalAmountATax" id="totalAmountAfterTaxFinal">
                                             </div>
                                         </div>
 
@@ -543,7 +554,7 @@
                                             <input type="hidden" id="companyId"/>
                                             <label class="control-label col-xs-6 " for="inputSuccess">Round off</label>
                                             <div class="col-xs-6 ">
-                                                <input type="text" class="form-control" name="totalAmount" id="roubndOffAmountFinal">
+                                                <input type="text" class="form-control" name="roundOff" id="roubndOffAmountFinal">
                                             </div>
                                         </div>
                                     </td>
@@ -561,6 +572,8 @@
                                     </td>
                                 </tr>
                             </table>
+                            <input type="submit" class="btn btn-lg btn-block btn-primary"  value="Save" />
+
                         </form>
                     </div>
                 </div>
