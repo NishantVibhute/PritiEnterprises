@@ -15,7 +15,17 @@
             <result name="failed">/index.jsp</result>
         </action>
         
+        <action name="saveProduct" class="com.pritient.forward.ProductAction" >
+            <result name="success">/jsp/product.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
         <action name="purchase" class="com.pritient.forward.PurchaseAction" >
+            <result name="success">/jsp/purchase.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+        <action name="savePurchase" class="com.pritient.forward.PurchaseAction" method="savePurchase" >
             <result name="success">/jsp/purchase.jsp</result>
             <result name="failed">/index.jsp</result>
         </action>
@@ -39,7 +49,10 @@
             <result name="failed">/index.jsp</result>
         </action>
         
-        
+        <action name="invoice" class="com.pritient.forward.InvoiceAction" >
+            <result name="success">/jsp/invoice.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
         
     </package>
 </struts>

@@ -7,6 +7,9 @@ package com.pritient.util;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,5 +38,21 @@ public class CommonUtil {
         String value = prop.getProperty(name);
         return value;
 
+    }
+
+    public static String convertDate(String date) {
+        String newDate = "";
+        try {
+            String sDate1 = date;
+            Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+            java.text.SimpleDateFormat sdf
+                    = new java.text.SimpleDateFormat("yyyy-MM-dd");
+
+            newDate = sdf.format(date1);
+
+        } catch (ParseException ex) {
+            Logger.getLogger(CommonUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return newDate;
     }
 }
