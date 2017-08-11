@@ -162,11 +162,17 @@
                             <a href="purchase"><i class="fa fa-fw fa-shopping-basket"></i> Purchase</a>
                         </li>
                         <li>
+                            <a href="getvoucher"><i class="fa fa-fw fa-credit-card"></i> Voucher</a>
+                        </li>
+                        <li>
                             <a href="getproduct"><i class="fa fa-fw fa-product-hunt"></i> Products</a>
                         </li>
 
                         <li>
                             <a href="getaddressbook"><i class="fa fa-fw fa-address-card-o"></i> Address Book</a>
+                        </li>
+                        <li>
+                            <a href="getPrintList"><i class="fa fa-fw fa-print"></i> Print</a>
                         </li>
 
                     </ul>

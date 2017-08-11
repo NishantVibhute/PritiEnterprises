@@ -18,7 +18,15 @@
 
         <script type="text/javascript" src="js/framework/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/bootbox.min.js"></script>
+        <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="js/datatables.min.js"></script>
         <title>JSP Page</title>
+        <script>
+            $(document).ready(function() {
+                $('#addressTable').DataTable();
+            });
+
+        </script>
     </head>
     <!--modal starts-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
@@ -153,7 +161,7 @@
 
                 <div class="row" style="height: 600px">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table id="addressTable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Sr No.</th>

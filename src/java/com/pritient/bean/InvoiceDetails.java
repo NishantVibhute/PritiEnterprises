@@ -22,6 +22,7 @@ public class InvoiceDetails {
     double igstPerc;
     double igstAmount;
     double totalAmountAfterTax;
+    String productName;
 
     public int getProductId() {
         return productId;
@@ -109,6 +110,14 @@ public class InvoiceDetails {
 
     public void setTotalAmountAfterTax(double totalAmountAfterTax) {
         this.totalAmountAfterTax = totalAmountAfterTax;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
 }

@@ -18,10 +18,11 @@ public class ServletContextLis implements ServletContextListener {
 
     ServletContext context;
     CommonUtil commonUtil;
-
+static String path;
     public void contextInitialized(ServletContextEvent contextEvent) {
         System.out.println("Context Created");
-        commonUtil = new CommonUtil();
+        path = contextEvent.getServletContext().getRealPath("/");
+        commonUtil = new CommonUtil(path);
     }
 
     public void contextDestroyed(ServletContextEvent contextEvent) {

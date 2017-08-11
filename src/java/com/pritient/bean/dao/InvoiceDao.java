@@ -7,12 +7,15 @@ package com.pritient.bean.dao;
 
 import com.pritient.bean.Invoice;
 import com.pritient.bean.InvoiceDetails;
+import com.pritient.bean.PaymentBean;
 import com.pritient.util.CommonUtil;
 import com.pritient.util.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -91,6 +94,121 @@ public class InvoiceDao extends DBUtil {
         }
         return id;
 
+    }
+
+    public List<PaymentBean> getAllInvoice() {
+        List<PaymentBean> invoice = new ArrayList<>();
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement("Call getInvoiceList()");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                PaymentBean pb = new PaymentBean();
+//                pb.setId(id);
+                pb.setInvoiceId(rs.getInt("id"));
+                pb.setCompanyName(rs.getString("company_name"));
+                pb.setAmount(rs.getDouble("bill_amount"));
+                pb.setDate(CommonUtil.convertDateToNormal(rs.getString("date")));
+                invoice.add(pb);
+            }
+
+            closeConnection(conn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return invoice;
+    }
+
+    public Invoice getInvoiceDetails(int id) {
+        Invoice in = new Invoice();
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement("Call getInvoice(?)");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                in.setId(rs.getInt("id"));
+                in.setDate(CommonUtil.convertDateToNormal(rs.getString("date")));
+                in.setReverseCharge(rs.getString("reverse_charge"));
+                in.setState(rs.getString("state"));
+                in.setCode(rs.getInt("code"));
+                in.setTransportMode(rs.getString("transport_mode"));
+                in.setVehicleNo(rs.getString("vehicle_no"));
+                in.setDateOfSupply(CommonUtil.convertDateToNormal(rs.getString("date_of_supply")));
+                in.setPlaceOfSupply(rs.getString("place_of_supply"));
+
+                in.setBillTO(rs.getInt("bill_to_party"));
+                in.setShipTo(rs.getInt("ship_to_party"));
+                in.setTotalAmountBeforeTax(rs.getDouble("total_amount_before_tax"));
+                in.setCgstPerc(rs.getDouble("cgst_perc"));
+                in.setCgstAmount(rs.getDouble("cgst_amount"));
+                in.setSgstPerc(rs.getDouble("sgst_perc"));
+                in.setSgstAmount(rs.getDouble("sgst_amount"));
+                in.setIgstPerc(rs.getDouble("igst_perc"));
+                in.setIgstAmount(rs.getDouble("igst_amount"));
+                in.setTotalAmountATax(rs.getDouble("total_amount_after_tax"));
+                in.setRoundOff(rs.getDouble("round_off"));
+                in.setTotalAmount(rs.getDouble("bill_amount"));
+                in.setTotalAmountInWords(rs.getString("bill_amount_in_words"));
+            }
+
+            List<InvoiceDetails> invoiceDetails = new ArrayList<>();
+            PreparedStatement ps1 = conn.prepareStatement("Call getInvoiceDetails(?)");
+            ps1.setInt(1, id);
+            ResultSet rs1 = ps1.executeQuery();
+            while (rs1.next()) {
+                InvoiceDetails ind = new InvoiceDetails();
+                ind.setProductName(rs1.getString("product_name"));
+                ind.setQty(rs1.getInt("qty"));
+                ind.setAmount(rs1.getDouble("total_amount"));
+                ind.setPrice(rs1.getDouble("amount"));
+                ind.setCgstPerc(rs1.getInt("cgst_perc"));
+                ind.setCgstAmount(rs1.getDouble("cgst_amount"));
+                ind.setSgstPerc(rs1.getInt("sgst_perc"));
+                ind.setSgstAmount(rs1.getDouble("sgst_amount"));
+                ind.setIgstPerc(rs1.getInt("igst_perc"));
+                ind.setIgstAmount(rs1.getDouble("igst_amount"));
+                ind.setTotalAmountAfterTax(rs1.getDouble("totalAmountAfterTax"));
+                invoiceDetails.add(ind);
+            }
+
+            in.setInvoiceDetails(invoiceDetails);
+
+            PreparedStatement ps2 = conn.prepareStatement("Call getCompanyDetails(?)");
+            ps2.setInt(1, in.getBillTO());
+            ResultSet rs2 = ps2.executeQuery();
+            while (rs2.next()) {
+                
+                in.setBillToName(rs2.getString(2));
+                in.setBillToAddress(rs2.getString(3));
+                in.setBillToGSTIN(rs2.getString(4));
+                in.setBillToState("Maharashtra");
+                in.setBillToCode("27");
+            }
+
+            PreparedStatement ps3 = conn.prepareStatement("Call getCompanyDetails(?)");
+            ps3.setInt(1, in.getShipTo());
+            ResultSet rs3 = ps3.executeQuery();
+            while (rs3.next()) {
+
+                in.setShipToName(rs3.getString(2));
+                in.setShipToAddress(rs3.getString(3));
+                in.setShipToGSTIN(rs3.getString(4));
+                in.setShipToState("Maharashtra");
+                in.setShipToCode("27");
+            }
+
+            closeConnection(conn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return in;
     }
 
 }

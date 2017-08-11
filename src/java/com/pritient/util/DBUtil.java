@@ -19,9 +19,9 @@ public class DBUtil {
 
     public Connection getConnection() {
         try {
-            url = (CommonUtil.getResourceProperties("db.url"));
+            url = "jdbc:mysql://127.9.126.2:3306/pritienterprises";
             Class.forName("com.mysql.jdbc.Driver");
-            this.con = DriverManager.getConnection(url, CommonUtil.getResourceProperties("db.username"), CommonUtil.getResourceProperties("db.password"));
+            this.con = DriverManager.getConnection(url, "adminGnXBLDP", "dt78KgjZGwUD");
             return con;
 
         } catch (Exception e) {

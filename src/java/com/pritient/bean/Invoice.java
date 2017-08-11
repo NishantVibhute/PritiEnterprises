@@ -14,6 +14,11 @@ import java.util.List;
 public class Invoice {
 
     int id;
+    String companyHeaderName;
+    String companyHeaderAddress;
+    String companyHeaderGSTIN;
+    String companyHeaderLogo;
+    String companyHeaderContact;
     String date;
     String reverseCharge;
     String state;
@@ -23,7 +28,18 @@ public class Invoice {
     String dateOfSupply;
     String placeOfSupply;
     int billTO;
+    String billToName;
+    String billToAddress;
+    String billToGSTIN;
+    String billToState;
+    String billToCode;
+
     int shipTo;
+    String shipToName;
+    String shipToAddress;
+    String shipToGSTIN;
+    String shipToState;
+    String shipToCode;
     double totalAmountBeforeTax;
     double cgstPerc;
     double cgstAmount;
@@ -220,5 +236,126 @@ public class Invoice {
     public void setInvoiceDetails(List<InvoiceDetails> invoiceDetails) {
         this.invoiceDetails = invoiceDetails;
     }
+
+    public String getCompanyHeaderName() {
+        return companyHeaderName;
+    }
+
+    public void setCompanyHeaderName(String companyHeaderName) {
+        this.companyHeaderName = companyHeaderName;
+    }
+
+    public String getCompanyHeaderAddress() {
+        return companyHeaderAddress;
+    }
+
+    public void setCompanyHeaderAddress(String companyHeaderAddress) {
+        this.companyHeaderAddress = companyHeaderAddress;
+    }
+
+    public String getCompanyHeaderGSTIN() {
+        return companyHeaderGSTIN;
+    }
+
+    public void setCompanyHeaderGSTIN(String companyHeaderGSTIN) {
+        this.companyHeaderGSTIN = companyHeaderGSTIN;
+    }
+
+    public String getCompanyHeaderLogo() {
+        return companyHeaderLogo;
+    }
+
+    public void setCompanyHeaderLogo(String companyHeaderLogo) {
+        this.companyHeaderLogo = companyHeaderLogo;
+    }
+
+    public String getCompanyHeaderContact() {
+        return companyHeaderContact;
+    }
+
+    public void setCompanyHeaderContact(String companyHeaderContact) {
+        this.companyHeaderContact = companyHeaderContact;
+    }
+
+    public String getBillToName() {
+        return billToName;
+    }
+
+    public void setBillToName(String billToName) {
+        this.billToName = billToName;
+    }
+
+    public String getBillToAddress() {
+        return billToAddress;
+    }
+
+    public void setBillToAddress(String billToAddress) {
+        this.billToAddress = billToAddress;
+    }
+
+    public String getBillToGSTIN() {
+        return billToGSTIN;
+    }
+
+    public void setBillToGSTIN(String billToGSTIN) {
+        this.billToGSTIN = billToGSTIN;
+    }
+
+    public String getBillToState() {
+        return billToState;
+    }
+
+    public void setBillToState(String billToState) {
+        this.billToState = billToState;
+    }
+
+    public String getBillToCode() {
+        return billToCode;
+    }
+
+    public void setBillToCode(String billToCode) {
+        this.billToCode = billToCode;
+    }
+
+    public String getShipToName() {
+        return shipToName;
+    }
+
+    public void setShipToName(String shipToName) {
+        this.shipToName = shipToName;
+    }
+
+    public String getShipToAddress() {
+        return shipToAddress;
+    }
+
+    public void setShipToAddress(String shipToAddress) {
+        this.shipToAddress = shipToAddress;
+    }
+
+    public String getShipToGSTIN() {
+        return shipToGSTIN;
+    }
+
+    public void setShipToGSTIN(String shipToGSTIN) {
+        this.shipToGSTIN = shipToGSTIN;
+    }
+
+    public String getShipToState() {
+        return shipToState;
+    }
+
+    public void setShipToState(String shipToState) {
+        this.shipToState = shipToState;
+    }
+
+    public String getShipToCode() {
+        return shipToCode;
+    }
+
+    public void setShipToCode(String shipToCode) {
+        this.shipToCode = shipToCode;
+    }
+
 
 }

@@ -25,6 +25,11 @@
             <result name="failed">/index.jsp</result>
         </action>
         
+        <action name="getvoucher" class="com.pritient.forward.VoucherAction" >
+            <result name="success">/jsp/voucher.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
         <action name="savePurchase" class="com.pritient.forward.PurchaseAction" method="savePurchase" >
             <result name="success">/jsp/purchase.jsp</result>
             <result name="failed">/index.jsp</result>
@@ -49,14 +54,36 @@
             <result name="failed">/index.jsp</result>
         </action>
         
+        <action name="updateVoucher" class="com.pritient.forward.VoucherAction" method="updateVoucher">
+            <result name="success" type="chain">getvoucher</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
         <action name="invoice" class="com.pritient.forward.InvoiceAction" >
             <result name="success">/jsp/invoice.jsp</result>
             <result name="failed">/index.jsp</result>
         </action>
         
+        <action name="getPrintList" class="com.pritient.forward.PrintAction" >
+            <result name="success">/jsp/print.jsp</result>
+            <result name="failed">/index.jsp</result>
+        </action>
+        
+        
         <action name="saveInvoiceCall" class="com.pritient.forward.InvoiceAction" method="saveInvoiceAction" >
             <result name="success">/jsp/invoice.jsp</result>
             <result name="failed">/index.jsp</result>
+        </action>
+        
+        
+        <action name="printInvoice" class="com.pritient.forward.InvoiceAction" method="printInvoice"  >
+            <result name="success" type="stream">
+	  <param name="contentType">application/pdf</param>
+	  <param name="inputName">fileInputStream</param>
+	  <param name="contentDisposition">attachment;filename="${fileName}"</param>
+	  <param name="bufferSize">1024</param>
+	</result>
+   
         </action>
         
     </package>
