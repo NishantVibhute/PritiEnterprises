@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/struts.xml</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/forward/InvoiceAction.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/util/ConvertToPdf.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/util/DBUtil.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/web/jsp/print.jsp</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/forward/PrintAction.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/util/CommonUtil.java</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/template/index.ftl</file>
+            <file>file:/C:/Users/nishant.vibhute.WEBACCESS/Documents/NetBeansProjects/PritiEnterprises/src/java/com/pritient/template/style.css</file>
+        </group>
     </open-files>
 </project-private>
