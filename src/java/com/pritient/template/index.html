@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>HTML to PDF</title>
+        <link href="C:\Users\nishant.vibhute.WEBACCESS\Documents\NetBeansProjects\Itext\src\itext\style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <table  width="100%" class="border-style-1 no-spacing">
+            <tr  class="border-style">
+                <td colspan="2" >
+                    <table cellpadding="3" width="100%">
+                        <tr>
+                            <td width="20%" style="text-align: center;" >
+                                LOGO
+                            </td>
+
+                            <td width="80%" >
+                                <div style="text-align: center;width: 100%;">
+                                    <br/>
+                                    <p ><b class="font-heading" >MICRO ENGINEERING</b></p>
+                                    <p class="font-medium">T.B. Bhandari Compound, M.G. Road, Charkop Village, Kandivali(west), Mumbai-400 067.</p>
+                                    <p class="font-medium">GSTIN : 27AAGFM6340M1ZY</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td colspan="2">
+
+                </td>
+            </tr>
+            <tr class="border-style">
+                <td colspan="2" class="border-style">
+                    <table cellpadding="3"  width="100%">
+                        <tr >
+                            <td  width="70%" style="text-align: center;border-right: 1px solid gray;" valign="center">
+                                <p class="font-large" style="font-weight: bold;text-decoration: underline;">Tax Invoice</p>
+                            </td>
+
+                            <td width="30%" class="border-left">
+                                <table height="auto">
+                                    <tr >
+                                        <td style="border: 0.5px solid gray">&nbsp;</td>
+                                        <td><span class="font-medium">Original for Recipient</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0.5px solid gray"></td>
+                                        <td><span class="font-medium">Duplicate for supplier/Transporter</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0.5px solid gray">&nbsp;</td>
+                                        <td><span class="font-medium">Triplicate for Supplier</span></td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td colspan="2">
+
+                </td>
+            </tr>
+            <tr >
+                <td  class="border-style" width="50%">
+                    <table  cellpadding="3" width="100%">
+                        <tr >
+                            <td width="34%" ><span class="font-medium">Invoice No</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">Invoice Date</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">Reverse Charge(Y/N)</span></td>
+                            <td><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">State</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td width="30%"><span class="font-medium"></span></td>
+                            <td><span class="font-medium">Code:</span></td>
+                            <td><span class="font-medium"></span></td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td width="50%" class="border-style">
+                    <table cellpadding="3"  width="100%">
+                        <tr >
+                            <td width="39%"><span class="font-medium">Transport Mode</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td width="60%"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td  ><span class="font-medium">Vehicle number</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td ><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td  ><span class="font-medium">Date of Supply</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td ><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td  ><span class="font-medium">Place of Supply</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td ><span class="font-medium"></span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td colspan="2">
+
+                </td>
+            </tr>
+            <tr class="border-style">
+                <td width="50%" class="border-style">
+                    <table  cellpadding="3"  width="100%">
+                        <tr height="20px">
+                            <td width="100%" colspan="5" style="text-align: center;" class="border-style"><span class="font-medium">Bill to Party</span></td>
+                        </tr>
+                        <tr >
+                            <td width="34%" ><span class="font-medium">Name</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td width="34%" ><span class="font-medium">Address</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td colspan="3" rowspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">&nbsp;</span></td>
+                            <td ><span class="font-medium"></span></td>
+
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">&nbsp;</span></td>
+                            <td ><span class="font-medium"></span></td>
+
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">GSTIN</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">State</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td width="30%"><span class="font-medium"></span></td>
+                            <td><span class="font-medium">Code:</span></td>
+                            <td><span class="font-medium"></span></td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td width="50%" class="border-style">
+                    <table  cellpadding="3"  width="100%">
+                        <tr height="20px">
+                            <td width="100%" colspan="5" style="text-align: center;" class="border-style"><span class="font-medium">Ship to Party</span></td>
+                        </tr>
+                        <tr >
+                            <td width="34%" ><span class="font-medium">Name</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td width="34%" ><span class="font-medium">Address</span></td>
+                            <td width="1%"><span class="font-medium">:</span></td>
+                            <td colspan="3" rowspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">&nbsp;</span></td>
+                            <td ><span class="font-medium"></span></td>
+
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">&nbsp;</span></td>
+                            <td ><span class="font-medium"></span></td>
+
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">GSTIN</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td colspan="3"><span class="font-medium"></span></td>
+                        </tr>
+                        <tr >
+                            <td ><span class="font-medium">State</span></td>
+                            <td ><span class="font-medium">:</span></td>
+                            <td width="30%"><span class="font-medium"></span></td>
+                            <td><span class="font-medium">Code:</span></td>
+                            <td><span class="font-medium"></span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td colspan="2">
+
+                </td>
+            </tr>
+
+            <tr height="200px" class="border-style">
+                <td colspan="2" >
+                    <table  cellpadding="2"  width="100%" class="border-style no-spacing">
+                        <tr class="center">
+                            <th style="border: 0.5px solid gray" rowspan="2" ><span class="font-small" >Sr. No</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">Product Description</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">HSN</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">QTY</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">UOM</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">RATE</span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">TOTAL</span></th>
+                            <th style="border: 0.5px solid gray"colspan="2" ><span class="font-small">CGST </span></th>
+                            <th style="border: 0.5px solid gray"colspan="2" ><span class="font-small">SGST </span></th>
+                            <th style="border: 0.5px solid gray"colspan="2"><span class="font-small">IGST </span></th>
+                            <th style="border: 0.5px solid gray"rowspan="2" ><span class="font-small">TOTAL AMOUNT</span></th>
+                        </tr>
+
+                        <tr class="center">
+
+                            <th style="border: 0.5px solid gray" ><span class="font-small" >RATE</span></th>
+                            <th style="border: 0.5px solid gray" ><span class="font-small">AMOUNT</span></th>
+                            <th style="border: 0.5px solid gray" ><span class="font-small" >RATE</span></th>
+                            <th style="border: 0.5px solid gray" ><span class="font-small">AMOUNT</span></th>
+                            <th style="border: 0.5px solid gray"><span class="font-small" >RATE</span></th>
+                            <th style="border: 0.5px solid gray" ><span class="font-small">AMOUNT</span></th>
+                        </tr>
+
+                        <tr>
+
+                            <td style="border: 0.5px solid gray" width="3%"><span class="font-small" >10</span></td>
+                            <td style="border: 0.5px solid gray"  width="22%"><span class="font-small">abcdefghtijklmnopqrstuvwxyz</span></td>
+                            <td style="border: 0.5px solid gray"  width="5%"><span class="font-small" >123456</span></td>
+                            <td style="border: 0.5px solid gray"  width="5%"><span class="font-small">1000</span></td>
+                            <td style="border: 0.5px solid gray"  width="5%"><span class="font-small" >23444.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="6%"><span class="font-small">12344.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="8%"><span class="font-small" >1234567.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="4%"><span class="font-small">9</span></td>
+                            <td style="border: 0.5px solid gray"  width="8%"><span class="font-small" >1234567.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="4%"><span class="font-small">9</span></td>
+                            <td style="border: 0.5px solid gray"  width="8%"><span class="font-small" >1234567.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="4%"><span class="font-small">18</span></td>
+                            <td style="border: 0.5px solid gray"  width="8%"><span class="font-small" >1234567.45</span></td>
+                            <td style="border: 0.5px solid gray"  width="10%"><span class="font-small">1234567.45</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray" ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="border: 0.5px solid gray"  colspan="6"><span class="font-small" >TOTAL</span></td>
+
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small" >&nbsp;</span></td>
+                            <td style="border: 0.5px solid gray"  ><span class="font-small">&nbsp;</span></td>
+
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td  colspan="2">
+
+                </td>
+            </tr>
+            <tr class="border-style" >
+
+                <td colspan="2">
+                    <table class="border-style" cellpadding="3"  width="100%">
+                        <tr >
+                            <td width="50%" colspan="2" class="center border-style"><span class="font-medium" >Total Invoice amount in words</span></td>
+                            <td class="border-style" colspan="3" width="19%"><span class="font-medium" >Total Amount Before Tax</span></td>
+                            <td class="border-style" width="1%"><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style" rowspan="5" colspan="2"><span  class="font-medium" >&nbsp;</span></td>
+                            <td class="border-style" width="16%"><span class="font-medium" >Add : CGST</span></td>
+                            <td class="border-style" width="3%"><span class="font-medium" >&nbsp;</span></td>
+                            <td class="border-style" width="1%"><span class="font-medium" >%</span></td>
+                            <td class="border-style"><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style"><span class="font-medium" >Add : SGST</span></td>
+                            <td class="border-style" ><span class="font-medium" >&nbsp;</span></td>
+                            <td class="border-style" ><span class="font-medium" >%</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style"><span class="font-medium" >Add : IGST</span></td>
+                            <td class="border-style" ><span class="font-medium" >&nbsp;</span></td>
+                            <td class="border-style" ><span class="font-medium" >%</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style" colspan="3" ><span class="font-medium" >Total Amount GST</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style" colspan="3"><span class="font-medium" >Total Amount After Tax</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style center" colspan="2" width="30%" ><span class="font-medium center" >Bank Details</span></td>
+                            <td class="border-style" colspan="3" ><span class="font-medium" >Round Off</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style" width="15%"><span class="font-medium " >Bank A/C :</span></td>
+
+                            <td class="border-style" ><span class="font-medium " >&nbsp;</span></td>
+                            <td class="border-style" colspan="3" ><span class="font-medium" >Bill Amount</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                        <tr >
+                            <td class="border-style" ><span class="font-medium " >Bank IFSC :</span></td>
+
+                            <td class="border-style" ><span class="font-medium " >&nbsp;</span></td>
+                            <td class="border-style" colspan="3" ><span class="font-medium" >GST On Reverse Charge</span></td>
+                            <td class="border-style" ><span class="font-medium" >:</span></td>
+                            <td class="border-style"><span class="font-medium" >&nbsp;</span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="5px">
+                <td colspan="2">
+
+                </td>
+            </tr>
+            <tr >
+                <td colspan="2">
+                    <table cellpadding="3" width="100%">
+                        <tr>
+                            <td class="border-style center" width="30%" ><span class="font-medium center" >Terms & conditions</span></td>
+                            <td class="border-style" rowspan="3" width="20%"><span class="font-medium center" >&nbsp;</span></td>
+                            <td class="border-style center" width="50%" ><span class="font-small " >Ceritified that the particulars given above are true and correct</span></td>
+                        </tr>
+                        <tr>
+                            <td class="border-style center" rowspan="3" ><span class="font-medium center" ></span></td>
+                            <td class="border-style center" ><span class="font-medium " >For MicroEngineering</span></td>
+
+                        </tr>
+                        <tr height="70px">
+                            <td class="border-style" ><span class="font-medium " >&nbsp;</span></td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td class="border-style center"  ><span class="font-medium center" >Common Seal</span></td>
+                            <td class="border-style center" ><span class="font-medium center" >Authorised signatory</span></td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+
+        </table>
+    </body>
+</html>

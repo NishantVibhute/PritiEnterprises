@@ -15,6 +15,9 @@
         <script type="text/javascript" src="js/invoice.js"></script>
         <!--<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>-->
         <script type="text/javascript" src="js/jquery-ui-1.12.1.js"></script>
+        
+
+        <script type="text/javascript" src="js/bootstrap.js"></script>
 
         <link href="css/jquery-ui.css" rel="stylesheet">
         <title>JSP Page</title>
@@ -34,9 +37,9 @@
                 });
 
             });
-            function getCompanyInfo()
+            function getCompanyInfoBillTo()
             {
-                var id = $("#compSelect").val();
+                var id = $("#billToCompSelect").val();
                 $.ajax({
                     url: 'getCompanyDetails?id=' + id,
                     type: "POST",
@@ -45,10 +48,93 @@
 
 
                     $("#companyId").val(response.companyId);
-                    $("#companyAddress").val(response.companyAddress);
-                    $("#companyGSTIN").val(response.companyGSTIN);
+                    $("#billToAddress").val(response.companyAddress);
+                    $("#billToGSTIN").val(response.companyGSTIN);
+                    
                 });
             }
+            function getCompanyInfoShipTo()
+            {
+                var id = $("#shipToCompSelect").val();
+                $.ajax({
+                    url: 'getCompanyDetails?id=' + id,
+                    type: "POST",
+                    dataType: 'json'
+                }).success(function(response) {
+
+
+                    $("#companyId").val(response.companyId);
+                    $("#shipToAddress").val(response.companyAddress);
+                    $("#shipToGSTIN").val(response.companyGSTIN);
+                });
+            }
+            
+            
+            function viewBill()
+            {
+                var formData = $("#invoiceForm").serialize();
+                var id = $("#shipToCompSelect").val();
+                $.ajax({
+                    url: 'saveInvoiceCall' ,
+                    type: "POST",
+                    data: formData,
+                    
+                }).success(function(response) {
+
+//                    alert(response);
+$('#invoiceModal').find('.modal-body').text("");
+        $('#invoiceModal').find('.modal-body').append(response);
+                    $('#invoiceModal').modal('show');
+                });
+            }
+            
+
+            function setValue(val)
+            {
+               if(val==="cgst")
+               {
+                if ($("#cgstCheckBox").is(':checked')) {
+                    $("#cgstPerc0").val("9");
+                    $("#cgstPercFinal").val("9");
+                    
+                } else {
+                    $("#cgstPerc0").val("0");
+                    $("#cgstPercFinal").val("0");
+                }
+            }
+            if(val==="sgst")
+               {
+                if ($("#sgstCheckBox").is(':checked')) {
+                    $("#sgstPerc0").val("9");
+                    $("#sgstPercFinal").val("9");
+                } else {
+                    $("#sgstPerc0").val("0");
+                    $("#sgstPercFinal").val("0");
+                }
+            }
+            if(val==="igst")
+               {
+                if ($("#igstCheckBox").is(':checked')) {
+                    $("#igstPerc0").val("18");
+                    $("#igstPercFinal").val("18");
+                } else {
+                    $("#igstPerc0").val("0");
+                    $("#igstPercFinal").val("0");
+                }
+            }
+                
+            }
+              
+              
+           
+function printDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+
 
         </script>
         <style>
@@ -93,7 +179,7 @@
                 </s:if>
                 <div class="row breadcrumb">
                     <div class="col-lg-12">
-                        <form  action="saveInvoiceCall" >
+                        <form  id="invoiceForm" >
                             <table class=" table" width="60%"  >
                                 <tr>
                                     <td colspan="2">
@@ -215,7 +301,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Name</label>
                                                 <div class="col-xs-9">
-                                                    <select id="compSelect" name="billTO" class="form-control"  onchange="getCompanyInfo()">
+                                                    <select id="billToCompSelect" name="billToName" class="form-control"  onchange="getCompanyInfoBillTo()()">
                                                         <option value="0">Select</option>
                                                         <s:iterator value="companyList">
                                                             <option value="<s:property value = 'companyId'/>"><s:property value = 'companyName'/></option>
@@ -229,7 +315,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Name</label>
                                                 <div class="col-xs-9">
-                                                    <select id="compSelect" name="shipTo" class="form-control"  onchange="getCompanyInfo()">
+                                                    <select id="shipToCompSelect" name="shipToName" class="form-control"  onchange="getCompanyInfoShipTo()()">
                                                         <option value="0">Select</option>
                                                         <s:iterator value="companyList">
                                                             <option value="<s:property value = 'companyId'/>"><s:property value = 'companyName'/></option>
@@ -246,7 +332,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Address</label>
                                                 <div style="height:80px" class="col-xs-9">
-                                                    <textarea style="height:80px" type="text" resize="none" class="form-control"> </textarea>
+                                                    <textarea style="height:80px" id="billToAddress" resize="none" name="billToAddress" class="form-control"> </textarea>
 
                                                 </div>
                                             </div>
@@ -256,7 +342,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">Address</label>
                                                 <div class="col-xs-9">
-                                                    <textarea style="height:80px" type="text" resize="none" class="form-control"> </textarea>
+                                                    <textarea style="height:80px" id="shipToAddress" resize="none" name="shipToAddress" class="form-control"> </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -268,7 +354,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">GSTIN</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="billToGSTIN"  name="billToGSTIN" />
                                                 </div>
                                             </div>
                                         </div>
@@ -277,7 +363,7 @@
                                             <div class="form-group">
                                                 <label class="col-xs-3 control-label">GSTIN</label>
                                                 <div class="col-xs-9">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="shipToGSTIN" name="shipToGSTIN" />
                                                 </div>
                                             </div>
                                         </div>
@@ -290,11 +376,11 @@
 
                                                 <label class="col-xs-3 control-label">State </label>
                                                 <div class="col-xs-5">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="billToState" name="billToState" />
                                                 </div>
                                                 <label class="col-xs-1 control-label">Code </label>
                                                 <div class="col-xs-3">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control"  id="billToCode" name="billToCode" />
                                                 </div>
 
                                             </div>
@@ -306,11 +392,11 @@
 
                                                 <label class="col-xs-3 control-label">State </label>
                                                 <div class="col-xs-5">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="shipToState" name="shipToState" />
                                                 </div>
                                                 <label class="col-xs-1 control-label">Code </label>
                                                 <div class="col-xs-3">
-                                                    <input type="text" class="form-control" name="invoiceNo" />
+                                                    <input type="text" class="form-control" id="shipToCode" name="shipToCode" />
                                                 </div>
 
                                             </div>
@@ -328,14 +414,17 @@
                                             <thead>
                                                 <tr style="text-align: center">
                                                     <th rowspan="2">Name</th>
+                                                     <th rowspan="2">HSN</th>
+                                                      <th rowspan="2">UOM</th>
                                                     <th rowspan="2">QTY</th>
+                                                    
                                                     <th rowspan="2">PRICE</th>
                                                     <th rowspan="2">AMOUNT</th>
-                                                    <th colspan="2">CGST</th>
+                                                    <th colspan="2"><input type="checkbox" id="cgstCheckBox" onchange="setValue('cgst')"/> CGST </th>
 
-                                                    <th colspan="2">SGST</th>
+                                                    <th colspan="2"><input type="checkbox" id="sgstCheckBox" onchange="setValue('sgst')"/> SGST</th>
 
-                                                    <th colspan="2">IGST </th>
+                                                    <th colspan="2"><input type="checkbox" id="igstCheckBox" onchange="setValue('igst')"/> IGST </th>
 
                                                     <th rowspan="2">TOTAL AMOUNT</th>
                                                 </tr>
@@ -354,36 +443,44 @@
                                                 <tr>
 
                                                     <td class="col-sm-2">
-                                                        <select id="productSelect" name="invoiceDetails[0].productId" class="form-control" onchange="getCompanyInfo()">
+                                                        <select id="productSelect" name="invoiceDetails[0].productName" class="form-control" onchange="getCompanyInfo()">
                                                             <option value="0">Select</option>
                                                             <s:iterator value="subProductList">
                                                                 <option value="<s:property value = 'subProductId'/>"><s:property value = 'subProductName'/></option>
                                                             </s:iterator>
                                                         </select>
                                                     </td>
+                                                     <td class="col-sm-1">
+                                                        <input type="text" name="invoiceDetails[0].hsn" id="hsn0"   class="form-control"/>
+                                                    </td>
+                                                     <td class="col-sm-1">
+                                                        <input type="text" name="invoiceDetails[0].uom" id="uom0"    class="form-control"/>
+                                                    </td>
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].qty" id="qty0"  class="form-control"/>
                                                     </td>
+                                                    
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].price" id="price0"  onblur="calculateRowGSTTotal('0')"  class="form-control"/>
                                                     </td>
+                                                    
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].amount" id="amount0"  class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="invoiceDetails[0].cgstPerc" id="cgstPerc0" onblur="calculateRowGSTTotal('0')" value="9" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].cgstPerc" id="cgstPerc0" onblur="calculateRowGSTTotal('0')" value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].cgstAmount" id="cgstAmt0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="invoiceDetails[0].sgstPerc" id="sgstPerc0" onblur="calculateRowGSTTotal('0')"  value="9" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].sgstPerc" id="sgstPerc0" onblur="calculateRowGSTTotal('0')"  value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].sgstAmount"  id="sgstAmt0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
-                                                        <input type="text" name="invoiceDetails[0].igstPerc" id="igstPerc0" onblur="calculateRowGSTTotal('0')" value="18" class="form-control"/>
+                                                        <input type="text" name="invoiceDetails[0].igstPerc" id="igstPerc0" onblur="calculateRowGSTTotal('0')" value="0" class="form-control"/>
                                                     </td>
                                                     <td class="col-sm-1">
                                                         <input type="text" name="invoiceDetails[0].igstAmount"  id="igstAmt0" class="form-control"/>
@@ -478,7 +575,7 @@
 
                                             <label class="control-label col-xs-2 " for="inputSuccess">CGST %</label>
                                             <div class="col-xs-2 ">
-                                                <input type="text" class="form-control"  name="cgstPerc" id="cgstPercFinal" VALUE="9">
+                                                <input type="text" class="form-control"  name="cgstPerc" id="cgstPercFinal" VALUE="0">
                                             </div>
                                             <label class="control-label col-xs-2" for="inputWarning">Amount</label>
                                             <div class="col-xs-6">
@@ -499,7 +596,7 @@
 
                                             <label class="control-label col-xs-2 " for="inputSuccess">SGST %</label>
                                             <div class="col-xs-2 ">
-                                                <input type="text" class="form-control"   name="sgstPerc" id="sgstPercFinal" VALUE="9">
+                                                <input type="text" class="form-control"   name="sgstPerc" id="sgstPercFinal" VALUE="0">
                                             </div>
                                             <label class="control-label col-xs-2" for="inputWarning">Amount</label>
                                             <div class="col-xs-6">
@@ -520,7 +617,7 @@
 
                                             <label class="control-label col-xs-2 " for="inputSuccess">IGST %</label>
                                             <div class="col-xs-2 ">
-                                                <input type="text" class="form-control"   name="igstPerc" id="igstPercFinal" VALUE="9">
+                                                <input type="text" class="form-control"   name="igstPerc" id="igstPercFinal" VALUE="0">
                                             </div>
                                             <label class="control-label col-xs-2" for="inputWarning">Amount</label>
                                             <div class="col-xs-6">
@@ -572,7 +669,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <input type="submit" class="btn btn-lg btn-block btn-primary"  value="Save" />
+                            <input type="button" class="btn btn-lg btn-block btn-primary" onclick="viewBill()"  value="View" />
 
                         </form>
                     </div>
@@ -580,6 +677,26 @@
                 <!-- /.row -->
 
                 <div class="row" style="height: 600px">
+                    
+                    <div id="invoiceModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      
+      <div class="modal-body">
+       
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+      
+  </div>
+  
+</div>
+                    
 
                 </div>
                 <!-- /.row -->

@@ -71,8 +71,9 @@
         
         
         <action name="saveInvoiceCall" class="com.pritient.forward.InvoiceAction" method="saveInvoiceAction" >
-            <result name="success">/jsp/invoice.jsp</result>
-            <result name="failed">/index.jsp</result>
+            <result type="stream">
+        <param name="contentType">text/plain</param>
+    </result>
         </action>
         
         

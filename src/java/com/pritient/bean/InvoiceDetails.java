@@ -12,6 +12,8 @@ package com.pritient.bean;
 public class InvoiceDetails {
 
     int productId;
+    String hsn;
+    String uom;
     int qty;
     double price;
     double amount;
@@ -118,6 +120,22 @@ public class InvoiceDetails {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getHsn() {
+        return hsn;
+    }
+
+    public void setHsn(String hsn) {
+        this.hsn = hsn;
+    }
+
+    public String getUom() {
+        return uom;
+    }
+
+    public void setUom(String uom) {
+        this.uom = uom;
     }
 
 }

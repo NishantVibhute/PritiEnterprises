@@ -13,7 +13,6 @@ import com.pritient.bean.SubProduct;
 import com.pritient.bean.dao.CompanyAddressDao;
 import com.pritient.bean.dao.InvoiceDao;
 import com.pritient.bean.dao.ProductDao;
-import com.pritient.util.CommonUtil;
 import com.pritient.util.ConvertToPdf;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -36,7 +35,7 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
 
     private InputStream fileInputStream;
     private String fileName;
-    
+
     String successMessage = "";
     String errorMessage = "";
     Invoice invoice = new Invoice();
@@ -56,19 +55,22 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
 
     public String saveInvoiceAction() throws Exception {
 
-        int id = invoiceDao.insertInvoice(this.getInvoice());
+        String out = ConvertToPdf.convert(invoice);
 
-        if (id == 0) {
-            errorMessage = "Failed To add Invoice";
-        } else {
-            successMessage = "Invoice Added Successfully";
-        }
+        inputStream = new ByteArrayInputStream(out.getBytes(StandardCharsets.UTF_8));
+
+//        int id = invoiceDao.insertInvoice(this.getInvoice());
+//        if (id == 0) {
+//            errorMessage = "Failed To add Invoice";
+//        } else {
+//            successMessage = "Invoice Added Successfully";
+//        }
         return ActionSupport.SUCCESS;
     }
 
     public String printInvoice() {
         try {
-             FileOutputStream out = null;
+            FileOutputStream out = null;
             int id = this.getDocId();
 
             Invoice invoice = invoiceDao.getInvoiceDetails(id);
@@ -76,13 +78,13 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
             ConvertToPdf.convert(invoice);
             ObjectMapper mapper = new ObjectMapper();
             String res = mapper.writeValueAsString("");
-            File file = new File(System.getenv("OPENSHIFT_DATA_DIR")+"pdf.pdf");
-            
+//            File file = new File(System.getenv("OPENSHIFT_DATA_DIR")+"pdf.pdf");
+            File file = new File("E:\\pdf.pdf");
+
             fileInputStream = new FileInputStream(file);
             this.setFileName("bill.pdf");
             file.delete();
-            
-           
+
             inputStream = new ByteArrayInputStream(res.getBytes(StandardCharsets.UTF_8));
         } catch (IOException ex) {
             Logger.getLogger(AddressBookAction.class.getName()).log(Level.SEVERE, null, ex);
@@ -118,7 +120,6 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
         this.docId = docId;
     }
 
-
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
     }
@@ -147,7 +148,6 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
         this.inputStream = inputStream;
     }
 
-
     @Override
     public Object getModel() {
         return invoice;
@@ -168,7 +168,5 @@ public class InvoiceAction extends ActionSupport implements ModelDriven {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
-    
-    
 
 }

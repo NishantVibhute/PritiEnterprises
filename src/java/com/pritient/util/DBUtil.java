@@ -19,9 +19,11 @@ public class DBUtil {
 
     public Connection getConnection() {
         try {
-            url = "jdbc:mysql://127.9.126.2:3306/pritienterprises";
+//            url = "jdbc:mysql://127.9.126.2:3306/pritienterprises";
+            url = "jdbc:mysql://localhost:3306/pritienterprises";
             Class.forName("com.mysql.jdbc.Driver");
-            this.con = DriverManager.getConnection(url, "adminGnXBLDP", "dt78KgjZGwUD");
+//            this.con = DriverManager.getConnection(url, "adminGnXBLDP", "dt78KgjZGwUD");
+            this.con = DriverManager.getConnection(url, "root", "root");
             return con;
 
         } catch (Exception e) {

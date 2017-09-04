@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 29, 2017, 10:24:14 AM
+    Author     : nishant.vibhute
+*/
+
+h1 {
+  color:#ccc;
+}
+
+.itext{
+    color:#84C7FD;
+    font-weight:bold;
+}
+.description{
+    color:gray;
+}
+
+.border-left-s{
+         border-left-style: dotted;
+     }
+     
+     .border-right{
+         border-right:  1px solid gray;
+     }
+     
+     .border-top{
+         border-top: 1px solid gray;
+     }
+     
+     .border-bottom{
+         border-left: 1px solid gray;
+     }
+
+.no-spacing {
+  border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
+  
+}
+.border-style{
+     border:0.5px solid gray;
+   
+}
+
+.border-style-1{
+     border:1px solid gray;
+   
+}
+
+.ab
+{
+    padding:9px;
+    margin-top: 10px;
+}
+
+.font-heading{
+    font-size: 24px;
+}
+
+.font-large{
+    font-size: 14px;
+}
+
+.font-medium{
+    font-size: 11px;
+}
+
+
+.font-small{
+    font-size: 8px;
+}
+
+.center
+{
+    text-align: center;
+}
+
+br {
+        line-height: 1px;
+     }
+     
